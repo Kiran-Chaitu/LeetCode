@@ -14,7 +14,7 @@ public:
                }
                else{
                    res = s;
-                   
+                   break;
                }
            }
        }
