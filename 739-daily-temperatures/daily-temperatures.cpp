@@ -10,7 +10,7 @@ public:
                 if(temperatures[i] >= s.top().first)    s.pop();
                 else break;
             } 
-            if (!s.empty()) ans[i] = s.top().second - i;
+            if(!s.empty()) ans[i] = s.top().second - i;
             s.push({temperatures[i], i});
         }
         return ans;
