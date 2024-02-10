@@ -26,7 +26,7 @@ public:
     }
     int deepestLeavesSum(TreeNode* root) {
         int maxi=len(root);
-        cout<<maxi;
+        //cout<<maxi;
         //int sum=0;
         sumNodes(root,maxi,1);
         return sum;
