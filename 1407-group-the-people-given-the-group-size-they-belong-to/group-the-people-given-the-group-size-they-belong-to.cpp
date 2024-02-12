@@ -2,22 +2,27 @@ class Solution {
 public:
     vector<vector<int>> groupThePeople(vector<int>& groupSizes) {
         map<int,vector<int>> m;
-        for(int i=0;i<groupSizes.size();i++){
+        int n=groupSizes.size();
+        for(int i=0;i<n;i++){
             m[groupSizes[i]].push_back(i);
         }
-        vector<vector<int>> v;
+        vector<vector<int>> ans;
         for(auto i:m){
-            int j=0;
-            vector<int>temp=i.second;
-            while(j<temp.size()){
-                vector<int>res;
-                for(int k=0;k<i.first;k++){
-                    res.push_back(temp[k+j]);
+            n=i.first;
+            vector<int> dum;
+            int c=1;
+            for(int j=0;j<i.second.size();j++){
+                dum.push_back(i.second[j]);
+                if(c==n){
+                    ans.push_back(dum);
+                    dum.clear();
+                    c=1;
                 }
-                v.push_back(res);
-                j+=i.first;
+                else{
+                    c++;
+                }
             }
         }
-        return v;
+        return ans;
     }
 };
