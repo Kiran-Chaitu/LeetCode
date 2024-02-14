@@ -11,7 +11,24 @@
  */
 class Solution {
 public:
-    void insert(TreeNode *root,int n){
+    void insert(TreeNode *root,TreeNode *nn){
+        if(!root)   return;
+        if(root->val > nn->val){
+            if(root->left == NULL){
+                root->left=nn;
+                return;
+            }
+            else insert(root->left,nn);
+        }
+        else{
+            if(root->right==NULL){
+                root->right=nn;
+                return;
+            }
+            else insert(root->right,nn);
+        }
+    }
+   /* void insert(TreeNode *root,int n){
         TreeNode *nn = root;
         TreeNode *t = new TreeNode(n);
         while(nn){
@@ -30,12 +47,13 @@ public:
                 else nn=nn->right;
             }
         }
-    }
+    }*/
     TreeNode* bstFromPreorder(vector<int>& preorder) {
         TreeNode *root = new TreeNode(preorder[0]);
         if(preorder.size()==1) return root;
         for(int i=1;i<preorder.size();i++){
-            insert(root,preorder[i]);
+            TreeNode *nn = new TreeNode(preorder[i]);
+            insert(root,nn);
         }
         return root;
     }
