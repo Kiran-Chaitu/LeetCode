@@ -15,7 +15,7 @@ public:
                 j--;
                 sc--;
             }
-            else break;
+            else return maxi;
         }
         return maxi;
     }
