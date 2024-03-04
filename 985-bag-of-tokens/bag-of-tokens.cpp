@@ -6,13 +6,11 @@ public:
         while(i<=j){
             if(power >= tokens[i]){
                 sc++;
-                power-=tokens[i];
-                maxi=max(sc,maxi);
-                i++;
+                power-=tokens[i++];
+                if(sc > maxi) maxi= sc;
             }
             else if(sc>=1){
-                power+=tokens[j];
-                j--;
+                power+=tokens[j--];
                 sc--;
             }
             else return maxi;
