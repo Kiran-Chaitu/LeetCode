@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        ios_base::sync_with_stdio(0);
         sort(intervals.begin(),intervals.end());
         int n = intervals.size();
         vector<vector<int>> ans;
