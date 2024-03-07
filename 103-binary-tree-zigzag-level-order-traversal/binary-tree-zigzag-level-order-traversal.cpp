@@ -12,6 +12,7 @@
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
+        ios_base::sync_with_stdio(0);
         if(!root) return {};
         if(root->left==NULL and root->right==NULL) return {{root->val}};
         vector<vector<int>> ans;
@@ -32,6 +33,7 @@ public:
         return ans;
     }
     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        ios_base::sync_with_stdio(0);
         vector<vector<int> > ans= levelOrder(root);
         for(int i=1;i<ans.size();i+=2){
             reverse(ans[i].begin(),ans[i].end());
