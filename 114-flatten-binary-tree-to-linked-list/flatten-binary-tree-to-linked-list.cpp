@@ -19,6 +19,7 @@ public:
         preorder(root->right);
     }
     void flatten(TreeNode* root) {
+        ios_base::sync_with_stdio(0);
         if(!root) return;
         TreeNode *nh=NULL,*t=NULL;
         preorder(root);
