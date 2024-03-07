@@ -12,6 +12,7 @@ public:
         subs(v,n,ind+1,ans);
     }
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        ios_base::sync_with_stdio(0);
         sort(nums.begin(),nums.end());
         subs(nums,nums.size(),0,{});
         vector<vector<int>> v;
