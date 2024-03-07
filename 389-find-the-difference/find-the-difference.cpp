@@ -1,6 +1,7 @@
 class Solution {
 public:
     char findTheDifference(string s, string t) {
+        ios_base::sync_with_stdio(0);
         if(s.size()==0) return t[0];
         unordered_map<char,int> m1,m2;
         for(int i=0;i<s.size();i++) m1[s[i]]++;
