@@ -2,6 +2,7 @@ class Solution {
 public:
     set<vector<int>> sv;
     void subs(vector<int> v,int n,int ind,vector<int> ans){
+        ios_base::sync_with_stdio(0);
         if(ind>=n){
             sv.insert(ans);
             return;
