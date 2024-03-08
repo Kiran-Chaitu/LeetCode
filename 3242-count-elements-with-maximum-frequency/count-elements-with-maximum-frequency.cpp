@@ -10,10 +10,9 @@ public:
         for(auto i : mp){
             if(i.second>mxf){
                 mxf = i.second;
+                c = i.second;
             }
-        }
-        for(auto i : mp){
-            if(i.second == mxf){
+            else if(i.second == mxf){
                 c+=i.second;
             }
         }
