@@ -11,6 +11,7 @@ public:
         return 0;
     }
     int getCommon(vector<int>& nums1, vector<int>& nums2) {
+        ios_base::sync_with_stdio(0);
         int n1 = nums1.size(), n2 =nums2.size();
         if(n1>=n2){
             for(int i=0;i<n2;i++){
