@@ -26,6 +26,7 @@ public:
         solver(root->right , val ,depth , cur+1 );
     }
     TreeNode* addOneRow(TreeNode* root, int val, int depth) {
+        ios_base::sync_with_stdio(0);
         if(depth ==1 ){
             TreeNode *nn = new TreeNode(val);
             nn->left  = root;
