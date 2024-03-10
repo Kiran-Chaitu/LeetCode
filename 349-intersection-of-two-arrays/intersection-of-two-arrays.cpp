@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        ios_base::sync_with_stdio(0);
         unordered_map<int,int> mp;
         for(int i=0;i<nums1.size();i++){
             mp[nums1[i]]++;
