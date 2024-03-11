@@ -1,6 +1,7 @@
 class Solution {
 public:
     string customSortString(string order, string s) {
+        ios_base::sync_with_stdio(0);
         unordered_map<char,int> mp1,mp2;
         for(int i=0;i<order.size();i++){
             mp1[order[i]]++;
