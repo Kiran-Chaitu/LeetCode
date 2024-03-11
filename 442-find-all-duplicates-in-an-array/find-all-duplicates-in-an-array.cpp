@@ -7,6 +7,7 @@ public:
             if(mp[nums[i]] != -1) mp[nums[i]]++;
             if(mp[nums[i]] >1){
                 v.push_back(nums[i]);
+                mp[nums[i]] = -1;
             } 
         }
         return v;
