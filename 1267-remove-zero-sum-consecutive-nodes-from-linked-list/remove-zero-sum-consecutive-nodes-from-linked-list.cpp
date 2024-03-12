@@ -11,6 +11,7 @@
 class Solution {
 public:
     ListNode* removeZeroSumSublists(ListNode* head) {
+        ios_base::sync_with_stdio(0);
         vector<int> v;
         ListNode *t=head;
         int pc=0,nc=0,len=0,zc=0;
