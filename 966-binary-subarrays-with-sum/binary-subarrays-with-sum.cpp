@@ -1,6 +1,7 @@
 class Solution {
 public:
     int numSubarraysWithSum(vector<int>& nums, int goal) {
+        ios_base::sync_with_stdio(0);
         int c=0;
         if(goal==0){
             int l=0,i=0;
