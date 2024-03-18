@@ -4,7 +4,7 @@ bool compare(vector<int> a, vector<int> b){
 class Solution {
 public:
     int findMinArrowShots(vector<vector<int>>& v) {
-        ios_base::sync_with_stdio(0);
+       // ios_base::sync_with_stdio(0);
         sort(v.begin(),v.end(),compare);
         int n=v.size();
         if(n==1) return 1;
