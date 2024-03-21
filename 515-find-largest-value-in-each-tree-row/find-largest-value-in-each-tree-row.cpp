@@ -32,6 +32,7 @@ public:
         return ans;
     }
     vector<int> largestValues(TreeNode* root) {
+        ios_base::sync_with_stdio(0);
         vector<vector<int>> v = levelOrder(root);
         vector<int> ans;
         for(int i=0;i<v.size();i++){
