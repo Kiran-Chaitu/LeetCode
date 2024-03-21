@@ -35,6 +35,7 @@ public:
         return ans;
     }
     TreeNode* reverseOddLevels(TreeNode* root) {
+        ios_base::sync_with_stdio(0);
         vector<vector<int> > v= levelOrder(root);
         queue<TreeNode *> q;
         q.push(root);
