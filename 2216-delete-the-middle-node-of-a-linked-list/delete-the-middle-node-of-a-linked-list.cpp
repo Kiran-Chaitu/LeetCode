@@ -17,6 +17,7 @@ public:
         while(s){
             s=s->next;
             l++;
+            if(l>2) break;
         }
         if(l==1) return NULL;
         else if(l==2){
