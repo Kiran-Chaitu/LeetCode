@@ -11,6 +11,7 @@
 class Solution {
 public:
     ListNode* deleteMiddle(ListNode* head) {
+        ios_base::sync_with_stdio(0);
         ListNode *s=head,*f=head;
         int l=0;
         while(s){
