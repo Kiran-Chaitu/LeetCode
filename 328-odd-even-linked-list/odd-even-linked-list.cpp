@@ -11,6 +11,7 @@
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
+        ios_base::sync_with_stdio(0);
         if(head==NULL || head->next==NULL) return head;
         ListNode *eh = head->next,*temp=head,*t=eh;
         while(temp){
