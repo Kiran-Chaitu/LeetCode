@@ -11,11 +11,12 @@
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
+        ios_base::sync_with_stdio(0);
         if(head==NULL) return NULL;
         if(head->next==NULL) return head;
         ListNode *t = head,*nx = head->next,*p=NULL;
         head = head->next;
-        while(t){
+        while(t!=NULL){
             t->next = nx->next;
             nx->next = t;
             if(p!=NULL) p->next=nx;
