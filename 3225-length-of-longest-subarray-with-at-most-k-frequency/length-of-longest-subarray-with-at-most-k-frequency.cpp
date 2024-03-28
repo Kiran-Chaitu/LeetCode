@@ -10,7 +10,8 @@ public:
                 mp[nums[l]]--;
                 l++;
             }
-            maxi = max(maxi,r-l+1);
+            if((r-l+1) > maxi) maxi = r-l+1;
+            //maxi = max(maxi,r-l+1);
             r++;
             
         }
