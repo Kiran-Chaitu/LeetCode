@@ -9,7 +9,7 @@ public:
         int c=0;
         while(r<n){
             if(nums[r]==maxi) c++;
-            while(c>=k){
+            while(c==k){
                 ans+=(n-r);
                 if(nums[l]==maxi) c--;
                 l++;
