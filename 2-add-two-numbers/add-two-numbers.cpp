@@ -10,67 +10,50 @@
  */
 class Solution {
 public:
+ListNode* insert(ListNode* head,int res){
+    ios_base::sync_with_stdio(0);
+    ListNode *nn = new ListNode(res);
+    ListNode *temp=head;
+     if(head==NULL){
+         head=nn;
+     }
+     else{
+         while(temp->next!=NULL){
+             temp=temp->next;
+         }
+         temp->next=nn;
+     }
+     return head;
+ }
+
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        int sum=0,c=0;
-        ListNode *rhead=NULL,*rt;
-        ListNode *t1=l1,*t2=l2;
-        while(t1 and t2){
-            sum=t1->val + t2->val + c;
-            ListNode* res= new ListNode((sum%10));
-            c=sum/10;
-            if(rhead==NULL){
-               rhead=res;
-               rt=rhead; 
-            } 
-            else{
-                rt->next=res;
-                rt=rt->next;
-            }
-            t1=t1->next;
-            t2=t2->next;
-        }
-        if(t1!=NULL){
-            while(t1){
-                sum = t1 -> val + c;
-                ListNode* res = new ListNode(sum%10);
-                c=sum/10;
-                if(rhead==NULL){
-                    rhead=res;
-                    rt=rhead; 
-                } 
-                else{
-                    rt->next=res;
-                    rt=rt->next;
-                }
-                t1=t1->next;
-            }
-            if(c!=0){
-                ListNode* res=new ListNode(c);
-                rt->next = res;
-                rt=rt->next;
-            }
-        }
-        else{
-            while(t2){
-                sum = t2 -> val + c;
-                ListNode* res = new ListNode(sum%10);
-                c=sum/10;
-                if(rhead==NULL){
-                    rhead=res;
-                    rt=rhead; 
-                } 
-                else{
-                    rt->next=res;
-                    rt=rt->next;
-                }
-                t2=t2->next;
-            }
-            if(c!=0){
-                ListNode* res=new ListNode(c);
-                rt->next = res;
-                rt=rt->next;
-            }
-        }
-        return rhead;
+        int carry=0;
+     ListNode* res=NULL;
+   ListNode* t1=l1;
+   ListNode* t2=l2;
+    while(l1!=NULL && l2!=NULL){
+        int data = l1->val + l2->val +carry;
+        l1=l1->next;
+        l2=l2->next;
+        res=insert(res,data%10);
+        carry=data/10; 
+    }
+    
+    while(l1!=NULL){
+        int data=l1->val+carry;
+        res=insert(res,data%10);
+        carry=data/10;
+        l1=l1->next;
+    }
+    while(l2!=NULL){
+        int data=l2->val+carry;
+        res=insert(res,data%10);
+        carry=data/10;
+        l2=l2->next;
+    }
+    if(carry!=0){
+        res=insert(res,carry);
+    }
+    return res;
     }
 };
