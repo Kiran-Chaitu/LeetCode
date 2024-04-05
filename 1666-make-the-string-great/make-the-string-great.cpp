@@ -1,6 +1,7 @@
 class Solution {
 public:
     string makeGood(string s) {
+        ios_base::sync_with_stdio(0);
         stack<char> st;
         //st.push(s[0]);
         for(int i=0;i<s.size();i++){
