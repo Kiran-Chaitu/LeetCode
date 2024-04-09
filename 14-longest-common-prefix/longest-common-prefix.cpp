@@ -9,7 +9,6 @@ public:
            
            for(int j = 0 ;j < res.size() ; j++){
                if(strs[i][j] == res[j]){
-
                    s += strs[i][j];
                }
                else{
