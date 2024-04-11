@@ -11,7 +11,7 @@
 class Solution {
 public:
 ListNode* insert(ListNode* head,int res){
-    ios_base::sync_with_stdio(0);
+    
     ListNode *nn = new ListNode(res);
     ListNode *temp=head;
      if(head==NULL){
