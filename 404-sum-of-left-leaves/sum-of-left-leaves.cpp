@@ -14,7 +14,8 @@ public:
     int sum=0;
     void preorder(TreeNode *root){
         if(!root) return;
-        if(root->left!=NULL and root->left->left==NULL and root->left->right==NULL) sum+=root->left->val;
+        if(root->left!=NULL and root->left->left==NULL and root->left->right==NULL)
+            sum+=root->left->val;
         preorder(root->left);
         preorder(root->right);
     }
