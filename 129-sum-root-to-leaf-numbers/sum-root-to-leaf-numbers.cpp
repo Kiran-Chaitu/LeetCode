@@ -11,16 +11,16 @@
  */
 class Solution {
 public:
+    // Code Written By ___Kiran__Chaitu___
     int sum=0;
     void preorder(TreeNode *root,int dig){
         if(!root) return;
-        dig = dig * 10 + root->val;
-        if(root->left==NULL and root->right==NULL)
-            sum+=dig;
+        dig  = dig *10 + root->val;
+        if(root->left==NULL and root->right==NULL) sum+=dig;
         preorder(root->left,dig);
         preorder(root->right,dig);
     }
-    int sumNumbers(TreeNode* root) {
+    int sumNumbers(TreeNode *root) {
         preorder(root,0);
         return sum;
     }
