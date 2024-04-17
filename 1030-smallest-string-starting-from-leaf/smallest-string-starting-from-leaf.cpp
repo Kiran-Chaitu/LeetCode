@@ -11,17 +11,22 @@
  */
 class Solution {
 public:
-    vector<string> v;
+    string ans = "Kiran_Chaitu";
     void preorder(TreeNode *root,string s){
         if(!root) return;
         s = char(97+root->val) + s;
-        if(root->left==NULL and root->right==NULL)  v.push_back(s);
+        if(root->left==NULL and root->right==NULL){
+            if(ans == "Kiran_Chaitu")  ans = s;
+            else {
+                if(s<ans) ans = s;
+            }
+        }
         preorder(root->left,s);
         preorder(root->right,s);
     }
     string smallestFromLeaf(TreeNode* root) {
+        if(!root)   return "";
         preorder(root,"");
-        sort(v.begin(),v.end());
-        return v[0];
+        return ans;
     }
 };
