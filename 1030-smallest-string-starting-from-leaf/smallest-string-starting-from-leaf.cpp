@@ -11,12 +11,12 @@
  */
 class Solution {
 public:
-    string ans = "Kiran_Chaitu";
+    string ans = "";
     void preorder(TreeNode *root,string s){
         if(!root) return;
-        s = char(97+root->val) + s;
+        s = char('a'+root->val) + s;
         if(root->left==NULL and root->right==NULL){
-            if(ans == "Kiran_Chaitu")  ans = s;
+            if(ans == "")  ans = s;
             else {
                 if(s<ans) ans = s;
             }
@@ -25,6 +25,7 @@ public:
         preorder(root->right,s);
     }
     string smallestFromLeaf(TreeNode* root) {
+        ios_base::sync_with_stdio(0);
         if(!root)   return "";
         preorder(root,"");
         return ans;
