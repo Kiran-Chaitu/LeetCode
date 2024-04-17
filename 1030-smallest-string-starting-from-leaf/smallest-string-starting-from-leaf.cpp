@@ -17,9 +17,7 @@ public:
         s = char('a'+root->val) + s;
         if(root->left==NULL and root->right==NULL){
             if(ans == "")  ans = s;
-            else {
-                if(s<ans) ans = s;
-            }
+            else if(s<ans) ans = s;
         }
         preorder(root->left,s);
         preorder(root->right,s);
