@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
-        
+        ios_base::sync_with_stdio(0);
         for(int i=0;i<9;i++){
             unordered_map<char,int> r,c;
             for(int j=0;j<9;j++){
