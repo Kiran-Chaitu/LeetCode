@@ -28,6 +28,8 @@ public:
         preorder(root->right);
     }
     int sumEvenGrandparent(TreeNode* root) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         preorder(root);
         return sum;
     }
