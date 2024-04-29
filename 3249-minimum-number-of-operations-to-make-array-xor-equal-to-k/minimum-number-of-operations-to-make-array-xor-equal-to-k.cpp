@@ -1,16 +1,20 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, int k) {
-        int x=0;
-        for(int i=0;i<nums.size();i++){
-            x^=nums[i];
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
+        int ans=0;
+        for(auto x:nums){
+            ans=ans^x;
         }
-        int num=x^k;
-        int c=0;
-        while(num>0){
-            if(num&1) c++;
-            num=num>>1;
+        ans=ans^k;
+        int res=0;
+        while(ans>0){
+            if(ans&1)
+            res++;
+            ans=ans>>1;
         }
-        return c;
+        return res;
     }
 };
