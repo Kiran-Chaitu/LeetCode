@@ -30,8 +30,6 @@ public:
         myorder(root->right,target);
     }
     TreeNode* removeLeafNodes(TreeNode* root, int target) {
-        ios_base::sync_with_stdio(0);
-        cin.tie(NULL);
         while(flag){
             flag=0;
             myorder(root,target);
