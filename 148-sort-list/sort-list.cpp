@@ -11,6 +11,7 @@
 class Solution {
 public:
     ListNode* sortList(ListNode* head) {
+        ios_base::sync_with_stdio(0);
         vector<int> v;
         ListNode *temp = head;
         while(temp){
