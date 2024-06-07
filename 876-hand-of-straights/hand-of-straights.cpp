@@ -13,7 +13,7 @@ public:
             for(auto i: mp){
                 if(j==groupSize) break;
                 v.push_back(i.first);
-                cout<<i.first<<" ";
+                //cout<<i.first<<" ";
                 mp[i.first]--;
                 if(j!=0){
                     if(abs(i.first - v[j-1]) != 1) return false;
@@ -23,7 +23,7 @@ public:
                 
             }
             if(v.size()!=groupSize) return false;
-            cout<<"\n";
+            //cout<<"\n";
         }
         return true;
         
