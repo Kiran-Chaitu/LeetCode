@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+    
     vector<int> v;
     int ind=0;
     void inorder(TreeNode *root){
@@ -28,6 +29,8 @@ public:
 
     }
     TreeNode* bstToGst(TreeNode* root) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         if(root->left==NULL and root->right==NULL){
             root->val=root->val+1;
             return root;
