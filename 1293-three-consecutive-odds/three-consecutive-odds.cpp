@@ -5,6 +5,8 @@ public:
         return false;
     }
     bool threeConsecutiveOdds(vector<int>& arr) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         int n = arr.size();
         if(n<3) return false;
         int oddCount = 0;
