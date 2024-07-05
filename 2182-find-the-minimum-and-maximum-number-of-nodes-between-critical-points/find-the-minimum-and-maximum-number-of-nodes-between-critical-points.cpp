@@ -11,23 +11,25 @@
 class Solution {
 public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
-        unordered_map<int,int> mp;
-        int c=2,i=0,mini=INT_MAX;
+        int c=2,i=0,mini=INT_MAX,first=-1,curr=-1;
         ListNode *temp = head;
         while(temp -> next ->next ){
             if((temp->val < temp->next->val and temp->next->val > temp->next->next-> val)
                 or (temp->val > temp->next->val and temp->next->val < temp->next->next->val)){
-                    i++;
-                    mp[i]=c;
-                    if(mp.size()>=2){
-                        mini = min(mini , mp[i] - mp[i-1]);
+                    
+                    if(first==-1){
+                        first = c;
+                    }
+                    else{
+                        if(curr==-1) mini = min(mini , c - first);
+                        else    mini = min(mini , c - curr );
+                        curr = c;
                     }
             }
             temp=temp->next;
             c++;
         }
-        if(mp.size()<2) return {-1,-1};
-        int n=mp.size();
-        return {mini , mp[n] - mp[1]};
+        if(curr==-1) return {-1,-1};
+        return {mini , curr - first};
     }
 };
