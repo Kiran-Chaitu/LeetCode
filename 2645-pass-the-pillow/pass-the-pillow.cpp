@@ -1,6 +1,8 @@
 class Solution {
 public:
     int passThePillow(int n, int time) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         bool check=true;int i=1;
         while(time--){
             if(check) i++;
