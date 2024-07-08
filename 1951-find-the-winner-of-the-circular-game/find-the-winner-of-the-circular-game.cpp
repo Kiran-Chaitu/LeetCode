@@ -1,6 +1,8 @@
 class Solution {
 public:
     int findTheWinner(int n, int k) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         vector<int> v(n);
         for(int i=0;i<n;i++){
             v[i] = i+1;
