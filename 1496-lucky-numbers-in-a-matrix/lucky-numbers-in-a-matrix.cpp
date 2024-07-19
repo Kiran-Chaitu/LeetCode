@@ -2,6 +2,8 @@
 class Solution {
 public:
     vector<int> luckyNumbers (vector<vector<int>>& matrix) {
+       ios_base::sync_with_stdio(0);
+       cin.tie(NULL);
        vector<int> rm,ch,ans;
        int mini=100009;
        int maxi=0;
