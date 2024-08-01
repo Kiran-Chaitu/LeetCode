@@ -6,7 +6,7 @@ public:
         for(int i=0;i<details.size();i++){
             string str = "";
             str+=(details[i][11]);
-            str+=(+details[i][12]);
+            str+=(details[i][12]);
             int num =stoi(str);
             if(num>60) ans++;
         }
