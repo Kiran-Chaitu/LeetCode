@@ -1,6 +1,8 @@
 class Solution {
 public:
     int minSwaps(vector<int>& nums) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         long long int size = 0 , ans = 0 , n = nums.size();
         for(int i=0;i<n;i++){
             if(nums[i]==1) size++;
