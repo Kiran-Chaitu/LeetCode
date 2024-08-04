@@ -5,12 +5,9 @@ public:
         cin.tie(NULL);
         vector<long long int> subSums;
         for(int i=0;i<n;i++){
-            for(int j=i;j<n;j++){
-                long long int sum=0;
-                for(int k=i;k<=j;k++){ 
-                    sum+=nums[k];
-                    //cout<<nums[k]<<" "<<sum<<endl;
-                }
+            long long int sum=0;
+            for(int j=i;j<n;j++){ 
+                sum+=nums[j];
                 subSums.push_back(sum);
             }
         }
