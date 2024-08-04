@@ -1,6 +1,8 @@
 class Solution {
 public:
     int rangeSum(vector<int>& nums, int n, int left, int right) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         vector<long long int> subSums;
         for(int i=0;i<n;i++){
             for(int j=i;j<n;j++){
