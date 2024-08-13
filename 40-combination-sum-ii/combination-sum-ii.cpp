@@ -1,42 +1,27 @@
 class Solution {
 public:
-    void Combination(vector<int>&v, int target, int ind, int sum, int size, vector<int>ans, set<vector<int>>&s)
-{
-	if(ind >= size && sum != target)
-	{
-		return;
-	}
-	else if(sum == target)
-	{
-		s.insert(ans);
-		return;
-	}
-	if(sum > target)
-	{
-		return;
-	}
-	sum += v[ind];
-	ans.push_back(v[ind]);
-	Combination(v,target,ind+1,sum,size,ans,s);
-    
-    while(ind<size-1 && v[ind]==v[ind+1]){
-        ind++;
+    set<vector<int>> st;
+    void solver(vector<int> v,int ind,int n,int t,int sum,vector<int> res){
+        if(ind>=n and sum!=t)   return;
+        else if(sum==t){
+            st.insert(res);
+            return;
+        }
+        else if(sum>t) return;
+        res.push_back(v[ind]);
+        solver(v,ind+1,n,t,sum+v[ind],res);
+        while(ind+1 < n and v[ind]==v[ind+1]) ind++;
+        res.pop_back();
+        solver(v,ind+1,n,t,sum,res);
     }
-	sum -= v[ind];
-	ans.pop_back();
-	Combination(v,target,ind+1,sum,size,ans,s);
-}
-    vector<vector<int>> combinationSum2(vector<int>& v, int target) {
-    set<vector<int>>s;
-	sort(v.begin(),v.end());
-	Combination(v,target,0,0,v.size(),{},s);
-	vector<vector<int>>result;
-	set<vector<int>>::iterator it;
-	for(it = s.begin(); it != s.end(); it++)
-	{
-		result.push_back(*it);
-	}
-    return result;
-        
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        vector<int> res;
+        vector<vector<int>> ans;
+        sort(candidates.begin(),candidates.end());
+        solver(candidates,0,candidates.size(),target,0,res);
+        for(auto i : st){
+            ans.push_back(i);
+        }
+        return ans;
     }
 };
