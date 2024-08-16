@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<int> findDiagonalOrder(vector<vector<int>>& mat) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         bool up = true, down = false;
         int m = mat.size() , n = mat[0].size(),i=0,j=0;
         long long int ans = m*n;
