@@ -1,17 +1,14 @@
 class Solution {
 public:
     int findComplement(int num) {
-        int ans=0;
-        vector<int> v;
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
+        int ans=0,i=0;
         while(num){
-            if(num&1)   v.push_back(0);
-            else v.push_back(1);
+            cout<<(num&1)<<" "<<(2<<i)<<" "<<ans<<endl;
+            if(!(num&1)) (i!=0) ? ans+=(2<<(i-1)):ans+=1;
             num>>=1;
-        }
-        for(int i=0;i<v.size();i++){
-            //cout<<v[i]<<" * "<<pow(2,i)<<" ";
-            ans += (v[i]*pow(2,i));
-            //cout<<ans<<endl;
+            i++;
         }
         return ans;
     }
