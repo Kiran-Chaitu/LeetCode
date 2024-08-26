@@ -29,8 +29,8 @@ public:
         }
     }
     vector<int> postorder(Node* root) {
-        ios_base::sync_with_stdio(0);
-        cin.tie(NULL);
+        // ios_base::sync_with_stdio(0);
+        // cin.tie(NULL);
         if(!root)   return {};
         solver(root);
         ans.push_back(root->val);
