@@ -1,8 +1,8 @@
 class Solution {
 public:
     int minimumCardPickup(vector<int>& cards) {
-        // ios_base::sync_with_stdio(0);
-        // cin.tie(NULL);
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         int n=cards.size(),k=-1;
         unordered_map<int,vector<int>> mp;
         for(int i=0;i<n;i++){
