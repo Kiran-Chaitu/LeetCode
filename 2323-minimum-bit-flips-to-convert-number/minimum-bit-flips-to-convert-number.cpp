@@ -1,6 +1,8 @@
 class Solution {
 public:
     int minBitFlips(int start, int goal) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         int k = start ^ goal;
         int c = 0;
         while( k ){
