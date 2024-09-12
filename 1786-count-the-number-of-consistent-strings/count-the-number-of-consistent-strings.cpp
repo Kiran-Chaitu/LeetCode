@@ -1,6 +1,8 @@
 class Solution {
 public:
     int countConsistentStrings(string allowed, vector<string>& words) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         unordered_map<char,int> mp;
         for(int i=0;i<allowed.size();i++){
             mp[allowed[i]]++;
