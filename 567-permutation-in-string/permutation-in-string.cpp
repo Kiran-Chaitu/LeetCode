@@ -1,6 +1,8 @@
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         int n1=s1.size(),n2 = s2.size();
         unordered_map<char,int> mp;
         for(int i=0;i<n1;i++){
