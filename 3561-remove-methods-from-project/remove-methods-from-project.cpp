@@ -6,16 +6,16 @@ public:
             gp[i[0]].push_back(i[1]);
         }
         vector<bool> sp(n,false);
-        stack<int> s;
-        s.push(k);
-        while(!s.empty()){
-            int a = s.top();
-            s.pop();
+        queue<int> q;
+        q.push(k);
+        while(!q.empty()){
+            int a = q.front();
+            q.pop();
             if(!sp[a]){
                 sp[a]=true;
                 for(int i:gp[a]){
                     if(!sp[i]){
-                        s.push(i);
+                        q.push(i);
                     }
                 }
             }
