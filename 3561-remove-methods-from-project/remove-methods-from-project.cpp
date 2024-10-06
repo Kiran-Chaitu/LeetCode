@@ -20,19 +20,8 @@ public:
                 }
             }
         }
-        for(int i=0;i<sp.size();i++) cout<<sp[i]<<" ";
-        cout<<endl;
-        // vector<bool> tor(n,true);
-        // for(int i=0;i<n;i++){
-        //     if(!sp[i]){
-        //         for(int j:gp[i]){
-        //             if(sp[j]){
-        //                 tor[i]=false;
-        //                 break;
-        //             }
-        //         }
-        //     }
-        // }
+        // for(int i=0;i<sp.size();i++) cout<<sp[i]<<" ";
+        // cout<<endl;
         vector<int> fn;
         bool check = false;
         for(int i=0;i<n;i++){
@@ -46,7 +35,7 @@ public:
             }
             if(check) break;
         }
-        cout<<check<<endl;
+        //cout<<check<<endl;
         if(check){
             for(int i=0;i<n;i++){
                 fn.push_back(i);
