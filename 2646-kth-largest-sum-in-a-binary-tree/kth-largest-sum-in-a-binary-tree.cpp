@@ -21,6 +21,8 @@ class Solution {
 public:
     
     long long kthLargestLevelSum(TreeNode* root, int k) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(0);
         solver(0,root);
         if(mp.size() < k) return -1;
         priority_queue<long long ,vector<long long> , greater<long long >> pq;
