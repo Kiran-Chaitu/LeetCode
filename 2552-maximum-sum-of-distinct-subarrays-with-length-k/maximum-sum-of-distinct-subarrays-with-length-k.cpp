@@ -1,6 +1,8 @@
 class Solution {
 public:
     long long maximumSubarraySum(vector<int>& nums, int k) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         long long int ans=0,maxi=0;
         unordered_map<int,int> mp;
         for(int i=0;i<k;i++){
