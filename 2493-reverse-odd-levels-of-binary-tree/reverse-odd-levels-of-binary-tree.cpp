@@ -42,23 +42,12 @@ public:
         int k=0;
         while(!q.empty()){
             int n=q.size();
-            if(k%2!=0){
-                for(int i=0;i<n;i++){
-                    TreeNode *nn = q.front();
-                    if(nn->left!=NULL) q.push(nn->left);
-                    if(nn->right!=NULL) q.push(nn->right);
-                    nn->val = v[k][i];
-                    q.pop();
-                }
-            }
-            else{
-                for(int i=0;i<n;i++){
-                    TreeNode *nn = q.front();
-                    if(nn->left!=NULL) q.push(nn->left);
-                    if(nn->right!=NULL) q.push(nn->right);
-                    nn->val = v[k][i];
-                    q.pop();
-                }
+            for(int i=0;i<n;i++){
+                TreeNode *nn = q.front();
+                if(nn->left!=NULL) q.push(nn->left);
+                if(nn->right!=NULL) q.push(nn->right);
+                nn->val = v[k][i];
+                q.pop();
             }
             k++;
         }
