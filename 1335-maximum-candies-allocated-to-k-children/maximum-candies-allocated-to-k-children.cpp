@@ -27,11 +27,13 @@ bool solver(ll mid,vi &v,ll k){
 class Solution {
 public:
     int maximumCandies(vector<int>& candies, long long k) {
-        sort(all(candies),greater<int>());
-        ll sum=0,prev=0;
-        for(auto i : candies) sum+=i;
+        ll sum=0,prev=0,r = candies[0];
+        for(auto i : candies){
+            if(r<i) r=i;
+            sum+=i;
+        }
         if(sum<k) return 0;
-        ll l = 1, r = candies[0];
+        ll l = 1;
         while(l<=r){
             ll mid = (l+r)>>1;
             //cout<<"mid = "<<mid<<" low = "<<l<<" high = "<<r<<endl;
