@@ -1,7 +1,3 @@
-#include<bits/stdc++.h>
-
-using namespace std;
-
 #define ll long long
 #define pii pair<int, int>
 #define vi vector<int>
@@ -30,8 +26,6 @@ ll solver(ll mid , vi &v,ll n){
 class Solution {
 public:
     int minimizedMaximum(int n, vector<int>& quantities) {
-        ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
         ll l=1,r=ln;
         for(auto i:quantities)  if(r<i) r=i;
         while(l<=r){
