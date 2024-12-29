@@ -1,4 +1,3 @@
-
 #define ll long long
 #define pii pair<int, int>
 #define vi vector<int>
@@ -19,6 +18,8 @@ const ll ln = LLONG_MIN;
 class Solution {
 public:
     vector<int> getSumAbsoluteDifferences(vector<int>& nums) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         ll sum=0,n=nums.size();
         vector<ll> pr(n),sf(n);
         for(int i=0;i<n;i++){
