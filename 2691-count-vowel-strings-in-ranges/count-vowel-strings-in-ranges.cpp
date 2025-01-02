@@ -13,9 +13,9 @@ public:
             int sz = i.size();
             if(isVowel(i[0]) and isVowel(i[sz-1])) sum++;
             v.push_back(sum);
-            cout<<sum<<" ";
+            //cout<<sum<<" ";
         }
-        cout<<endl;
+        //cout<<endl;
         for(int i=0;i<n;i++){
             int l=queries[i][0] , r = queries[i][1] , temp=0;
             if(l==0){
