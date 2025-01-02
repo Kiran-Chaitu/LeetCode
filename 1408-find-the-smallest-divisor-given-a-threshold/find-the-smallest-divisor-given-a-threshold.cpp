@@ -23,12 +23,12 @@ public:
         for(int i=0;i<sz(v);i++){
             ld temp = v[i];
             sum+=ceil(temp/mid);
-            //cout<<sum<<" ";
         }
-        //cout<<endl;
         return sum<=k;
     }
     int smallestDivisor(vector<int>& nums, int threshold) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         ll maxi=nums[0] , mini = nums[0], n = sz(nums);
         for(auto i:nums){
             if(maxi < i) maxi =i;
@@ -36,7 +36,6 @@ public:
         ll l=1,r=maxi,ans;
         while(l<=r){
             ll mid = (l+r)>>1;
-            //cout<<mid<<endl;
             if(solver(nums,threshold,mid)){
                 ans = mid;
                 r = mid -1;
