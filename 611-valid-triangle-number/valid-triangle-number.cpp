@@ -6,8 +6,7 @@ public:
         for(int i=n-1;i>1;i--){
             int l=0,r = i-1 , k =arr[i];
             while(l<r){
-                int sum = arr[l] + arr[r];
-                if(sum > k){
+                if(arr[l] + arr[r] > k){
                     ans+=(r-l);
                     r--;
                 }
