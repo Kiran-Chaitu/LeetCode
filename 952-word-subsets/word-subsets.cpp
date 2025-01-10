@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<string> wordSubsets(vector<string>& words1, vector<string>& words2) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(NULL);
         vector<string> ans;
         unordered_map<char,int> mp;
         for(auto i: words2){
