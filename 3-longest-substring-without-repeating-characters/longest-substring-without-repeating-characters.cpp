@@ -2,19 +2,16 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
         ios_base::sync_with_stdio(0);
-        int l=0;
-        for(int i=0;i<s.size();i++){
-            int com=0;
-            unordered_map<char,int> m;
-            for(int j=i;j<s.size();j++){
-                m[s[j]]++;
-                if(m[s[j]]>1){
-                    break;
-                }
-                com++;
+        int l = 0 , r = 0 , maxi = 0;  
+        unordered_map<int,int> mp;
+        while(r < s.size()){
+            mp[s[r]]++;
+            while(mp[s[r]] > 1){
+                mp[s[l++]]--;
             }
-            if(com>l) l=com;
+            maxi = max(maxi , r-l + 1);
+            r++;
         }
-        return l;
+        return maxi;
     }
 };
