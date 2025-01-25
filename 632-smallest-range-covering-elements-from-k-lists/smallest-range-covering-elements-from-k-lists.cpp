@@ -1,28 +1,33 @@
 class Solution {
 public:
     vector<int> smallestRange(vector<vector<int>>& nums) {
-        map<int  , deque<pair<int,int>>> mp;
-        for(int i=0;i<nums.size();i++){
-            mp[nums[i][0]].push_back({i,0});
+        vector<pair<int,int>> v;
+        int k = nums.size();
+        for (int i=0; i<k; i++){
+            for (int j=0; j<nums[i].size(); j++){
+                v.push_back({nums[i][j], i});
+            }
         }
-        int val  = INT_MAX;
-        vector<int> ans = {};
-        while(true){
-            auto mini = mp.begin();
-            auto maxi = mp.rbegin();
-            int diff = maxi->first - mini->first;
-            int minI =mini->second[0].first ,  minJ = mini->second[0].second;
-            if(diff < val){
-                val = diff;
-                ans = {mini->first , maxi->first};
+        sort(begin(v), end(v));
+        map<int,int> mp;
+        int maxi = 1e6, mini = -1e6;
+        vector<int> ans = {mini, maxi};
+        int i = 0,j = 0;
+        int n = v.size();
+        while (j<n){
+            mp[v[j].second]++;
+            while (mp.size() == k){
+                int low = v[i].first;
+                int high = v[j].first;
+                if (ans[1]-ans[0] > high - low){
+                    ans[0] = low;
+                    ans[1] = high;
+                }
+                if (mp[v[i].second] == 1) mp.erase(v[i].second);
+                else mp[v[i].second]--;
+                i++;
             }
-            if(minJ == nums[minI].size()-1){
-                break;
-            }
-            int nextJ = minJ + 1;
-            mp[mini->first].pop_front();
-            mp[nums[minI][nextJ]].push_back({minI , nextJ});
-            if(mp[nums[minI][minJ]].size() ==0) mp.erase(nums[minI][minJ]);
+            j++;
         }
         return ans;
     }
