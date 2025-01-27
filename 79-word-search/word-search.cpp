@@ -1,28 +1,30 @@
 class Solution {
 public:
-    bool ans=false;
-    void solver(vector<vector<char>> &board, int i,int j,int r,int c,int x, string word,vector<vector<int>> &vis){
-        if(i<0 || i>=r || j<0 || j>=c || vis[i][j]==1 || board[i][j]!=word[x] ) return;
-        if(x>=word.size()-1){
-            ans=true;
+    bool ans = false;
+    void solver(vector<vector<char>> &board , string &word , int i , int j , int ind ,vector<vector<int>> &vis , int n , int m , int len){
+        if(i<0 || i >= n ||j<0 || j>=m || vis[i][j] || board[i][j] != word[ind] ) return;
+        if(ind == len-1 and board[i][j] == word[ind]){ 
+            ans = true;
             return;
         }
-        vis[i][j]=1;
-        solver(board,i-1,j,r,c,x+1,word,vis);
-        solver(board,i+1,j,r,c,x+1,word,vis);
-        solver(board,i,j-1,r,c,x+1,word,vis);
-        solver(board,i,j+1,r,c,x+1,word,vis);
-        vis[i][j]=0;
-
+        vis[i][j] = 1;
+        solver(board , word , i+1 , j , ind+1 , vis,n,m,len);
+        solver(board , word , i-1 , j , ind+1 , vis,n,m,len);
+        solver(board , word , i , j+1 , ind +1 , vis,n,m,len);
+        solver(board , word , i , j-1 ,ind +1 , vis,n,m,len);
+        vis[i][j] =0;
     }
+
     bool exist(vector<vector<char>>& board, string word) {
-        int r=board.size(),c=board[0].size();
-        vector<vector<int>> vis(r,vector<int> (c,0));
-        for(int i=0;i<r;i++){
-            for(int j=0;j<c;j++){
+        int len = word.size(), n = board.size() , m = board[0].size();
+        vector<vector<int>> vis(n , vector<int>(m,0));
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
                 if(board[i][j]==word[0]){
-                    solver(board,i,j,r,c,0,word,vis);
-                    if(ans) return true;
+                    solver(board , word , i , j ,0 , vis , n , m ,len);
+                    if(ans){
+                        return true;
+                    }
                 }
             }
         }
