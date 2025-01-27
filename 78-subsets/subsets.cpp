@@ -1,22 +1,22 @@
 class Solution {
 public:
-    set<vector<int>> v;
-    void subset(int ind,int size,vector<int> &nums,vector<int> ans){
-        if(ind>=size){
-            v.insert(ans);
-            return;
+    vector<vector<int>> ans={};
+    set<vector<int>> st;
+    void solver(vector<int> &v ,int i, int n , vector<int> &nums){
+        if(i>=n){
+            st.insert(v);
+            return ;
         }
-        ans.push_back(nums[ind]);
-        subset(ind+1,size,nums,ans);
-        ans.pop_back();
-        subset(ind+1,size,nums,ans);
+        v.push_back(nums[i]);
+        solver(v,i+1 , n , nums);
+        v.pop_back();
+        solver(v,i+1 , n  ,nums);
     }
     vector<vector<int>> subsets(vector<int>& nums) {
-        subset(0,nums.size(),nums,{});
-        vector<vector<int>> fun;
-        for(auto i : v){
-            fun.push_back(i);
-        }
-        return fun;
+        int n= nums.size();
+        vector<int> v={};
+        solver(v ,0 , n ,nums);
+        for(auto i:st) ans.push_back(i);
+        return ans;
     }
 };
