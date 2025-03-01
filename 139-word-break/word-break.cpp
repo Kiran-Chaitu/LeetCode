@@ -1,27 +1,25 @@
 class Solution {
 public:
-    bool start(int i,int n,string &s, map<string,int>&mp,vector<int>&dp){
-        if (i>=n) return true;
-        if (dp[i] != -1) return dp[i];
-        bool ans = false;
-        for (auto [word,val] : mp){
-            if (word[0]==s[i]){
-                int m = word.size();
-                if (i+m<=n){
-                    string sub = s.substr(i,m);
-                    if (sub == word){
-                        ans |= start(i+m,n,s,mp,dp);
-                    }
+    bool wordBreak(string s, vector<string>& wordDict) {
+        int n = s.size(),maxi = 0;
+        vector<int> dp(n+1,0);
+        map<string,int> mp;
+        for (string i : wordDict){
+            mp[i]++;
+            int m = i.size();
+            maxi = max(maxi,m);
+        }
+        dp[0] = 1;
+        for (int i=1; i<=n; i++){
+            for (int j=i; j>max(i-maxi,0); j--){
+                string sub = s.substr(j-1,i-j+1);
+                if (mp.find(sub) == mp.end()) continue;
+                if (dp[j-1]==1) {
+                    dp[i] = 1;
+                    break;
                 }
             }
         }
-        return dp[i] = ans;
-    }
-    bool wordBreak(string s, vector<string>& wordDict) {
-        int n = s.size();
-        map<string,int> mp;
-        for (string i : wordDict) mp[i]++;
-        vector<int> dp(n,-1);
-        return start(0,n,s,mp,dp);
+        return dp[n];
     }
 };
