@@ -5,23 +5,21 @@ public:
         n--;
         string s="1";
         while(n--){
-            string ans="";
-            // cout<<"s = "<<s<<endl;
-            char ch = s[0];
+            string dum="";
+            char thingari = s[0];
             int c=0;
             for(auto i:s){
-                if(i==ch) c++;
+                if(i==thingari) c++;
                 else{
-                    ans+=to_string(c);
-                    ans+=ch;
-                    ch = i;
+                    dum+=to_string(c);
+                    dum+=thingari;
+                    thingari = i;
                     c=1;
                 }
             }
-            ans+=to_string(c);
-            ans+=ch;
-            // cout<<ans<<endl;
-            s=ans;
+            dum+=to_string(c);
+            dum+=thingari;
+            s=dum;
         }
         return s;
     }
