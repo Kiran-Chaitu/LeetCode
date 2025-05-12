@@ -5,7 +5,7 @@ public:
         unordered_map<int,int> mp;
         while(r<n){
             mp[nums[r]]++;
-            if(mp[nums[r]] > 0){
+            if(mp[nums[r]] > 1){
                 pairs += mp[nums[r]]-1;
             }
             // cout<<" l = "<<l<<" r = "<<r<<" pairs = "<<pairs<<endl;
