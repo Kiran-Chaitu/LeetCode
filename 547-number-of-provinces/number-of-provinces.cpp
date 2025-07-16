@@ -23,7 +23,7 @@ public:
         //     for(auto j : i.second) cout<<j<<" ";
         //     cout<<endl;
         // }
-        // if(mp.size() == 0) return isConnected.size();
+        if(mp.size() == 0) return isConnected.size();
         vector<bool> vis(n,false);
         int ans =0;
         for(int i=0;i<n;i++){
