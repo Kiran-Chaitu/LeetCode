@@ -29,7 +29,7 @@ public:
         for(int i=0;i<n;i++){
             if(!vis[i]){
                 cout<<"i = "<<i<<endl;
-                if(mp[i].size() > 0) dfs( i , mp , vis );
+                if( mp[i].size() > 0) dfs( i , mp , vis );
                 else vis[i] = true;
                 ans++;
             }
