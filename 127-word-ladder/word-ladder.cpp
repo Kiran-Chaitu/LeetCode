@@ -12,17 +12,15 @@ public:
             string word = q.front().first;
             int level = q.front().second;
             for(int i = 0; i < word.size() ;i++ ){
+                char original = word[i];
                 for(char ch = 'a' ; ch <='z';ch++){
-                    string prefix ="" , suffix="";
-                    prefix = word.substr(0 ,i);
-                    if(i!=word.size()-1) suffix = word.substr(i+1);
-                    string temp = prefix + ch + suffix;
-                    // cout<<prefix<<"; ";
-                    if(temp != word and mp.find(temp)!=mp.end()){ 
-                        q.push({temp , level+1});
-                        mp.erase(temp);
+                    word[i] = ch;
+                    if(mp.find(word)!=mp.end()){ 
+                        q.push({word , level+1});
+                        mp.erase(word);
                     }
                 }
+                word[i] = original;
             }
             // cout<<endl;
             q.pop();
