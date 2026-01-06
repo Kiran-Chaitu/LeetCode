@@ -27,20 +27,20 @@ public:
             for(int k = 1 ; k <= min( 6, n*n - (int)step) ; k++ ){
                 pair<int,int> newIndices = solver(step + k , n);
                 i = n - 1 - newIndices.first , j = newIndices.second;
-                cout<<(step+k)<<" "<<i<<" "<<j<<" "<<moves+1<<endl;
+                // cout<<(step+k)<<" "<<i<<" "<<j<<" "<<moves+1<<endl;
                 if(step+k == n * n) return moves+1;
                 if(i == n || i < 0 ) i=0;
                 if(!vis[i][j] and board[i][j] == -1){
-                    cout<<"step :- "<<(step+k)<<" "<<i<<" "<<j<<" "<<moves+1<<endl;
+                    // cout<<"step :- "<<(step+k)<<" "<<i<<" "<<j<<" "<<moves+1<<endl;
                     if(step+k == n * n) return moves+1;
                     q.push({step + k , moves + 1});
                 }
                 else if(!vis[i][j] and board[i][j]!=-1){
-                    pair<int,int> temp = solver(board[i][j] , n);
-                    int x = n - 1 - temp.first , y = temp.second;
-                    if(x == n || x < 0) x=0;
+                    // pair<int,int> temp = solver(board[i][j] , n);
+                    // int x = n - 1 - temp.first , y = temp.second;
+                    // if(x == n || x < 0) x=0;
                     // vis[x][y] = 1;
-                    cout<<"Ladder or Snake:- "<<board[i][j]<<" "<<x<<" "<<y<<" "<<moves+1<<endl;
+                    // cout<<"Ladder or Snake:- "<<board[i][j]<<" "<<x<<" "<<y<<" "<<moves+1<<endl;
                     if(board[i][j] == n*n) return moves+1;
                     q.push({board[i][j] , moves+1});
                 }
