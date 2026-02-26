@@ -20,7 +20,7 @@ public:
                     int maxi =  max(diff,d);
                     
                     if(ans[nr][nc] > maxi){
-                        cout<<maxi<<" "<<diff<<" "<<nr<<" "<<nc<<" "<<ans[nr][nc]<<endl;
+                        // cout<<maxi<<" "<<diff<<" "<<nr<<" "<<nc<<" "<<ans[nr][nc]<<endl;
                         ans[nr][nc] = maxi; 
                         pq.push({ans[nr][nc] , nr,nc});
                     }
