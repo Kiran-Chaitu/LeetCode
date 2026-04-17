@@ -1,39 +1,45 @@
+class DisJointSetUnion{
+    private:
+        vector<int> parent , size;
+    public:
+        DisJointSetUnion(int n){
+            parent.resize(n);
+            size.resize(n,1);
+            for(int i=0;i<n;i++) parent[i] = i;
+        }
+        int findParent(int node){
+            if(parent[node] == node) return node;
+            return parent[node] = findParent(parent[node]);
+        }
+        void unionBySize(int u , int v){
+            int pu = findParent(u) , pv =findParent(v);
+            if(pu == pv) return;
+            if(size[pu] > size[pv]){
+                parent[pv] = pu;
+                size[pu]+=size[pv];
+            }else{
+                parent[pu] = pv;
+                size[pv]+=size[pu];
+            }
+        }
+        int getUniqueComponentsCount(){
+            int count = 0;
+            for(int i = 0;i<parent.size();i++){
+                if(findParent(i) == i) count++;
+            }
+            return count;
+        }
+};
 class Solution {
 public:
-    void dfs(int i , unordered_map<int,vector<int>> &mp , vector<bool> &vis){
-        if(vis[i] || mp.find(i)==mp.end()) return;
-        cout<<i<<" ";
-        vis[i] = true;
-        for(auto j : mp[i]){
-            dfs(j , mp , vis);
-        }
-    }
     int findCircleNum(vector<vector<int>>& isConnected) {
         int n = isConnected.size();
-        unordered_map<int,vector<int>> mp;
-        for(int i=0;i<n;i++){
-            for(int j = 0 ;j<n;j++){
-                if(i!=j and isConnected[i][j]){
-                    mp[i].push_back(j);
-                }
+        DisJointSetUnion dsu(n);
+        for(int i = 0 ; i < n ; i++){
+            for(int j =i+1 ; j < n ; j++){
+                if(isConnected[i][j]) dsu.unionBySize(i , j);
             }
         }
-        // for(auto i : mp){
-        //     cout<<i.first<<" -> ";
-        //     for(auto j : i.second) cout<<j<<" ";
-        //     cout<<endl;
-        // }
-        if(mp.size() == 0) return isConnected.size();
-        vector<bool> vis(n,false);
-        int ans =0;
-        for(int i=0;i<n;i++){
-            if(!vis[i]){
-                cout<<"i = "<<i<<endl;
-                if( mp[i].size() > 0) dfs( i , mp , vis );
-                else vis[i] = true;
-                ans++;
-            }
-        }
-        return ans;
+        return dsu.getUniqueComponentsCount();
     }
 };
