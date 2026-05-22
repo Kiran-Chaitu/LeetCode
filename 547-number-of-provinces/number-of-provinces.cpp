@@ -36,7 +36,7 @@ public:
         int n = isConnected.size();
         DisJointSetUnion dsu(n);
         for(int i = 0 ; i < n ; i++){
-            for(int j =i+1 ; j < n ; j++){
+            for(int j = 0 ; j < n ; j++){
                 if(isConnected[i][j]) dsu.unionBySize(i , j);
             }
         }
