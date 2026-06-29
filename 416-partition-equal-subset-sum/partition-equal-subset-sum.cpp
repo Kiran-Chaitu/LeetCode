@@ -13,12 +13,23 @@ public:
     } 
     bool canPartition(vector<int>& nums) {
         int n = nums.size();
-        vector<vector<int>> dp( n+1 , vector<int>(20001,-1));
+        // vector<vector<int>> dp( n+1 , vector<int>(20001,-1));
         int sum=0;
         for(auto i:nums) sum+=i;
         if(sum & 1) return 0;
         int target = sum/2;
-        return solver(n-1 , dp , nums , target);
-        
+        vector<vector<int>> dp( n+1 , vector<int>(target+1,0));
+        // return solver(n-1 , dp , nums , target);
+        for(int i = 0;i <n;i++) dp[i][0] = true;
+        if(nums[0] <= target) dp[0][nums[0]] = true;
+        for(int i = 1;i<n;i++){
+            for(int j = 1;j<=target;j++){
+                bool pick = false;
+                if(nums[i]<= j) pick = dp[i-1][j-nums[i]];
+                bool unpick = dp[i-1][j];
+                dp[i][j] = pick || unpick;
+            }
+        }
+        return dp[n-1][target];
     }
 };
