@@ -41,6 +41,6 @@ public:
         }
         ll res = ((bst%mod) + mod)%mod;
         res = (res * bk)%mod;
-        return (int)res;
+        return res;
     }
 };
