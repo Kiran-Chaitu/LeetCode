@@ -39,7 +39,7 @@ public:
                 bk = i;
             }
         }
-        ll res = ((bst%mod) + mod)%mod;
+        ll res = ((bst%mod) + mod);
         res = (res * bk)%mod;
         return res;
     }
