@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maxNumberOfFamilies(int n, vector<vector<int>>& reservedSeats) {
-        unordered_map<int,set<int>> mp;
+        unordered_map<int,unordered_set<int>> mp;
         for(auto i : reservedSeats){
             int r = i[0] , c = i[1];
             if(c >=2 and c<=3){
