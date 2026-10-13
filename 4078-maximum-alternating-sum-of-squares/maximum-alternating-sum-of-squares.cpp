@@ -7,8 +7,7 @@ public:
         }
         sort(nums.begin() , nums.end());
         for(int i=0;i<n;i++) ans+=nums[i];
-        for(int i=0;i<(n/2);i++) ans-=nums[i];
-        for(int i=0;i<(n/2);i++) ans-=nums[i];
+        for(int i=0;i<(n/2);i++) ans-=2LL * nums[i];
         return ans;
     }
 };
