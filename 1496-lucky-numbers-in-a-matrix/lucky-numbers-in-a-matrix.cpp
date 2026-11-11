@@ -18,7 +18,10 @@ public:
                     break;
                 }
             }
-            if(lucky) ans.push_back(mini);
+            if(lucky){
+                ans.push_back(mini);
+                break;
+            }
         }
         return ans;
     }
