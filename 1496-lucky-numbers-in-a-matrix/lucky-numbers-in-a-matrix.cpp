@@ -1,27 +1,25 @@
 class Solution {
 public:
     vector<int> luckyNumbers(vector<vector<int>>& matrix) {
-        int m = matrix.size() , n = matrix[0].size();
         vector<int> ans;
-        for(int i = 0; i < m;i++){
-            int mini = INT_MAX;
-            int col = -1;
-            for(int j = 0; j < n ; j++){
+        int n  = matrix.size() , m = matrix[0].size();
+        for(int i = 0; i < n;i++){
+            int mini = INT_MAX , col =-1;
+            for(int j = 0; j < m ; j++){
                 if(mini > matrix[i][j]){
                     mini = matrix[i][j];
                     col = j;
                 }
             }
-            bool flag = true;
-            for(int k = 0 ; k< m; k++ ){
+            bool lucky = true;
+            for(int k = 0 ; k < n ; k++){
                 if(mini < matrix[k][col]){
-                    flag = false;
+                    lucky = false;
                     break;
                 }
             }
-            if(flag) ans.push_back(matrix[i][col]);
+            if(lucky) ans.push_back(mini);
         }
         return ans;
-
     }
 };
