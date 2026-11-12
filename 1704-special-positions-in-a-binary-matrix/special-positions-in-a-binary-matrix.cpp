@@ -2,26 +2,19 @@ class Solution {
 public:
     int numSpecial(vector<vector<int>>& matrix) {
         int n = matrix.size() , m = matrix[0].size() , ans = 0;
+        vector<int> row(n) , col(m);
         for(int i = 0; i  <n ; i++){
             for(int j = 0 ; j < m ; j++){
-                if(matrix[i][j] == 0) continue;
-                bool special = true;
-                //row
-                for(int k = 0 ; k < m ; k++){
-                    if(k != j and matrix[i][k] == 1){
-                        special = false;
-                        break;
-                    }
+                if(matrix[i][j] == 1){
+                    row[i]++;
+                    col[j]++;
                 }
-                if(special == false) continue;
-                //column
-                for(int k = 0; k < n ; k++){
-                    if(k != i and matrix[k][j] == 1){
-                        special = false;
-                        break;
-                    }
-                }
-                if(special) ans++;
+            }
+        }
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m ;j++){
+                if(matrix[i][j] ==0) continue;
+                if(row[i]==1 and col[j] ==1) ans++;
             }
         }
         return ans;  
