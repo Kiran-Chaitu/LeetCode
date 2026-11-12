@@ -1,8 +1,8 @@
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
-        ios_base::sync_with_stdio(0);
-        unordered_map<int,int> row,col;
+        int n = matrix.size() , m = matrix[0].size();
+        vector<int> row(n) , col(m);
         for(int i=0;i<matrix.size();i++){
             for(int j=0;j<matrix[0].size();j++){
                 if(matrix[i][j]==0){
@@ -13,7 +13,7 @@ public:
         }
         for(int i=0;i<matrix.size();i++){
             for(int j=0;j<matrix[0].size();j++){
-                if(row.find(i)!=row.end() || col.find(j)!=col.end()) matrix[i][j]=0;
+                if(row[i] || col[j]) matrix[i][j]=0;
             }
         }
     }
