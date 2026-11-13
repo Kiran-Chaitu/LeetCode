@@ -4,14 +4,15 @@ public:
         int n = matrix.size();
         vector<vector<int>> trans(n , vector<int>(n));
         for(int i = 0; i < n ; i++){
-            for(int j = 0; j <=i ; j++){
-                swap(matrix[i][j] , matrix[j][i]);
+            for(int j = 0; j < n ; j++){
+                trans[j][i] = matrix[i][j];
             }
         }
         for(int i =0; i< n; i++){
             for(int j = 0; j < n/2; j++){
-                swap(matrix[i][j] , matrix[i][n-j-1]);
+                swap(trans[i][j] , trans[i][n-j-1]);
             }
         }
+        matrix = trans;
     }
 };
